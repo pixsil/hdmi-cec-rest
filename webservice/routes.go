@@ -21,7 +21,7 @@ func GetRouter() *mux.Router {
 	r.HandleFunc("/device/{port:[0-9]+}", deviceHandler).Methods("GET")
 	r.HandleFunc("/device/{port:[0-9]+}/power", powerHandler).Methods("GET", "POST")
 	r.HandleFunc("/device/{port:[0-9]+}/volume", volumeHandler).Methods("POST")
-	r.HandleFunc("/command", indexHandler).Methods("GET")
+	r.HandleFunc("/command/{port:[a-z]+}", commandHandler).Methods("GET")
 
 	return r
 }
@@ -58,8 +58,17 @@ func powerHandler(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
+}
+
 func volumeHandler(w http.ResponseWriter, r *http.Request) {
 	hdmiControl.SetVolume(getRequestBody(w, r).State)
+}
+
+func powerHandler(w http.ResponseWriter, r *http.Request) {
+	vars := mux.Vars(r)
+	command, _ := strconv.Atoi(vars["command"])
+	
+	hdmiControl.Command(command)
 }
 
 func getRequestBody(w http.ResponseWriter, r *http.Request) Request {
