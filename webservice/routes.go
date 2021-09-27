@@ -21,7 +21,7 @@ func GetRouter() *mux.Router {
 	r.HandleFunc("/device/{port:[0-9]+}", deviceHandler).Methods("GET")
 	r.HandleFunc("/device/{port:[0-9]+}/power", powerHandler).Methods("GET", "POST")
 	r.HandleFunc("/device/{port:[0-9]+}/volume", volumeHandler).Methods("POST")
-	r.HandleFunc("/command", deviceHandler).Methods("GET")
+	r.HandleFunc("/command", indexHandler).Methods("GET")
 
 	return r
 }
