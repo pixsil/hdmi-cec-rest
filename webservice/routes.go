@@ -64,7 +64,7 @@ func volumeHandler(w http.ResponseWriter, r *http.Request) {
 	hdmiControl.SetVolume(getRequestBody(w, r).State)
 }
 
-func powerHandler(w http.ResponseWriter, r *http.Request) {
+func commandHandler(w http.ResponseWriter, r *http.Request) {
 	vars := mux.Vars(r)
 	command, _ := strconv.Atoi(vars["command"])
 	
