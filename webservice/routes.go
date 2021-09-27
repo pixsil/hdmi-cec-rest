@@ -66,7 +66,7 @@ func commandHandler(w http.ResponseWriter, r *http.Request) {
 	vars := mux.Vars(r)
 	command, _ := strconv.Atoi(vars["command"])
 	
-	hdmiControl.Command(command)
+	hdmiControl.DoCommand(command)
 }
 
 func getRequestBody(w http.ResponseWriter, r *http.Request) Request {
