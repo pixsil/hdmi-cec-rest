@@ -68,5 +68,5 @@ func SetVolume(state string) error {
 }
 
 func DoCommand(command string) error {
-	return hdmi.Transmit()
+	return hdmi.Transmit("3F:82:10:00")
 }
