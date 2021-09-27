@@ -66,3 +66,8 @@ func SetVolume(state string) error {
 		return errors.New("Invalid volume state given.")
 	}
 }
+
+
+func Command(command string) error {
+	return hdmi.Transmit()
+}
