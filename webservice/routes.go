@@ -58,8 +58,6 @@ func powerHandler(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
-}
-
 func volumeHandler(w http.ResponseWriter, r *http.Request) {
 	hdmiControl.SetVolume(getRequestBody(w, r).State)
 }
