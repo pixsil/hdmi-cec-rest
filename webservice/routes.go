@@ -5,7 +5,7 @@ import (
 	"net/http"
 	"strconv"
 
-	"github.com/bah2830/hdmi-cec-rest/hdmiControl"
+	"github.com/pixsil/hdmi-cec-rest/hdmiControl"
 	"github.com/gorilla/mux"
 )
 
